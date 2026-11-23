@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Live machine readings | MechGuard AI</title><link rel="stylesheet" href="style.css"><script src="profiles.js" defer></script><script src="machines.js" defer></script></head>
+<body>
+<header class="top"><div class="brand"><span class="mark" aria-hidden="true">⌁</span> MechGuard <b>AI</b></div><div class="top-actions"><a href="safety.html">Worker safety</a><a href="index.html">Conveyor camera demo</a><span class="badge">Simulation mode</span></div></header>
+<main>
+<p class="eyebrow">OPERATIONS / MULTI-ASSET DEMO</p><h1>Live machine readings</h1>
+<p class="feed-help">Watch one simulated reading per second. Each 45-second run includes a normal operating change, then a developing fault. Alerts use demo rules and simulated signals.</p>
+<section class="panel machine-controls" aria-label="Machine and playback controls">
+<label>Machine<select id="machine"></select></label>
+<label>Playback speed<select id="speed"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select></label>
+<button id="toggle" type="button">Pause</button><button id="reset" type="button">Restart</button>
+</section>
+<section id="readings" class="metrics live-metrics" aria-label="Sensor readings"></section>
+<section class="panel feed-chart"><div class="panel-head"><div><h2>Sensor trend</h2><p id="phase" class="reading-state"></p></div><label><span class="sr">Trend sensor</span><select id="channel"></select></label></div>
+<canvas class="live-chart" id="trend" role="img" aria-label="Sensor trend over time"></canvas>
+<div class="legend"><span>━ Simulated reading</span><span>┄ Expected at current conditions</span></div>
+</section>
+<section class="panel transport" aria-label="Replay position"><label for="scrub">Time</label><input id="scrub" type="range" min="0" max="45" step="1" value="0"><output id="clock"></output></section>
+<section class="panel"><div class="panel-head"><h2>Condition and incident log</h2><span class="badge" id="condition" role="status"></span></div><p id="evidence"></p><ol id="machineLog"></ol></section>
+</main></body></html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Live camera | MechGuard AI</title><link rel="stylesheet" href="style.css"><script defer src="vendor/tf.min.js"></script><script defer src="vendor/coco-ssd.min.js"></script><script defer src="live-camera.js"></script></head>
+<body>
+<header class="top"><div class="brand"><span class="mark" aria-hidden="true">⌁</span> MechGuard <b>AI</b></div><div class="top-actions"><a href="safety.html">Safety replay</a><a href="machines.html">Machine readings</a></div></header>
+<main>
+<p class="eyebrow">OPERATIONS / WORKER SAFETY</p><h1>Live camera</h1>
+<p class="feed-help">Use a camera connected to this device. The browser processes the video locally and displays approximate people counts. Position the camera so feet and the monitored floor are visible.</p>
+<section class="panel machine-controls" aria-label="Camera controls"><button id="start-camera">Start camera</button><button id="stop-camera" disabled>Stop camera</button><label>Camera direction<select id="camera-direction"><option value="environment">Rear or external</option><option value="user">Front</option></select></label></section>
+<section class="metrics live-metrics" aria-label="Current camera readings">
+<article><span>People in view</span><strong id="visible-count">—</strong><small>People detected in the latest frame</small></article>
+<article><span>Inside marked zone</span><strong id="zone-count">—</strong><small>Based on estimated foot position</small></article>
+<article><span>Population index</span><strong id="live-index">—</strong><small>In zone ÷ people detected</small></article>
+<article><span>Last analyzed</span><strong id="last-frame">—</strong><small>Device local time</small></article>
+</section>
+<section class="panel">
+<div class="panel-head"><h2>Camera preview</h2><span id="live-status" class="badge" role="status">Camera off</span></div>
+<div class="screen live-screen" id="live-screen"><video id="live-video" playsinline muted aria-label="Live camera preview"></video><canvas id="live-overlay" aria-hidden="true"></canvas></div>
+<div class="machine-controls live-zone-controls" aria-label="Zone position"><label>Zone left edge<input id="zone-left" type="range" min="0" max="80" value="55"></label><label>Zone top edge<input id="zone-top" type="range" min="0" max="80" value="55"></label></div>
+<p id="live-message" class="footnote">Select Start camera and allow access when prompted. The marked zone extends from the selected edges to the bottom right of the frame.</p>
+<p class="footnote">Helmet and vest detection is unavailable in live mode. Use this page for a controlled demo.</p>
+</section>
+</main></body></html>

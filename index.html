@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="MechGuard AI conveyor health and worker safety simulation"><title>MechGuard AI | Operations</title><link rel="stylesheet" href="style.css"><script src="demo.js" defer></script></head>
+<body>
+<header class="top"><div class="brand"><span class="mark" aria-hidden="true">⌁</span> MechGuard <b>AI</b></div><div class="top-actions"><a href="live-camera.html">Live camera</a><a href="safety.html">Worker safety</a><a href="machines.html">Live machine readings</a><span class="badge">Simulation mode</span></div></header>
+<main>
+<section class="intro"><div><p class="eyebrow">OPERATIONS / PACKAGING LINE</p><h1>Conveyor monitoring</h1><p>Motor M‑01 and camera CAM‑01 · Packaging line A</p></div><div class="controls"><label for="scenario">Demo scenario</label><select id="scenario"><option value="combined">Combined incident</option><option value="normal">Normal operation</option><option value="motor">Motor anomaly</option><option value="safety">Hazard-zone entry</option><option value="ppe">Missing PPE</option><option value="proximity">Unsafe proximity</option></select></div></section>
+<section class="metrics" aria-label="Current readings">
+<article><span>Vibration RMS</span><strong id="vib">—</strong><small>Demo limit · 4.5 mm/s</small></article>
+<article><span>Motor temperature</span><strong id="temp">—</strong><small>Demo limit · 68 °C</small></article>
+<article><span>Motor current</span><strong id="amps">—</strong><small>Demo limit · 6.4 A</small></article>
+<article><span>Operational risk</span><strong id="risk">Normal</strong><small id="riskReason">Motor and camera clear</small></article>
+</section>
+<div class="panels">
+<section class="panel"><div class="panel-head"><div><p class="eyebrow">MACHINE HEALTH</p><h2>Motor telemetry</h2></div><label><span class="sr">Chart metric</span><select id="metric"><option value="vib">Vibration</option><option value="temp">Temperature</option><option value="amps">Current</option></select></label></div><canvas id="chart" role="img" aria-label="Simulated motor telemetry trend"></canvas><div class="legend"><span>━ Simulated reading</span><span>┄ Demo limit</span></div></section>
+<section class="panel"><div class="panel-head"><div><p class="eyebrow">WORKER SAFETY</p><h2>Camera replay</h2></div><span id="cameraStatus" class="badge">Clear</span></div><div class="screen"><video id="video" src="camera.mp4" poster="camera.jpg" playsinline preload="auto" muted aria-label="Stock footage of a worker at a conveyor workstation"></video><div class="cam-overlay"><span>CAM‑01</span><span id="camTime">00:00</span></div><div id="zone" hidden></div><div id="cameraEvent" hidden></div></div><p class="footnote">Safety overlays are scripted. <a href="https://www.pexels.com/video/man-working-on-conveyor-machine-855091/">Sample footage</a> via Pexels.</p></section>
+</div>
+<section class="panel transport" aria-label="Replay controls"><button id="play" type="button">Play</button><button id="restart" type="button">Restart</button><label class="sr" for="seek">Replay position</label><input id="seek" type="range" min="0" max="23.9" step="0.1" value="0"><output id="position">00:00 / 00:24</output></section>
+<section class="panel incident"><div class="panel-head"><div><p class="eyebrow">EVENT LOG</p><h2>Incidents and actions</h2></div><span id="count" class="badge">0 events</span></div><div id="events" aria-live="polite"></div></section>
+</main>
+</body></html>
